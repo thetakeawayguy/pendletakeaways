@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pendletakeaways.co.uk/sitemap.xml
