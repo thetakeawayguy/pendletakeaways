@@ -22,9 +22,10 @@ let pool=entries.filter(e=>(halal!=="halal"||e.halal===true)&&(area==="any"||e.a
 let areaFallback=false;
 if(!pool.length){pool=entries.filter(e=>(halal!=="halal"||e.halal===true)&&(area==="any"||e.area===area));areaFallback=true;}
 if(!pool.length){quote.textContent="No listings for this area yet. Try anywhere in Pendle.";picks.replaceChildren();answer.hidden=false;return;}
+const isOpen=document.getElementById("open-filter")?.checked; if(isOpen){pool=pool.filter(e=>window.PendleIsLikelyOpen?.(({ "adams-curry-house.html":"adams","north-valley-chippy.html":"north","bakshs-indian-kitchen.html":"bakshs" })[e.url]||"unknown"));if(!pool.length){quote.textContent="None of my matches have listed hours showing them likely open right now, boss. Turn off the opening-hours filter to see more takeaways. Always ring before travelling.";picks.replaceChildren();answer.hidden=false;document.dispatchEvent(new CustomEvent("taj-results",{detail:{urls:[],area:area,foodType:""}}));return;}}
 const withHunger=pool.filter(e=>e.type.includes(hunger));if(withHunger.length)pool=withHunger;
 const options=pool.filter(e=>e.url!==last);if(options.length)pool=options;
-const item=pool[Math.floor(Math.random()*pool.length)];last=item.url;document.dispatchEvent(new CustomEvent("taj-results",{detail:{urls:pool.map(e=>e.url)}}));
+const item=pool[Math.floor(Math.random()*pool.length)];last=item.url;const foodType=pool.every(e=>e.type.includes("burger"))?"Burgers":pool.every(e=>e.type.includes("sweet"))?"Sweet":"";document.dispatchEvent(new CustomEvent("taj-results",{detail:{urls:pool.map(e=>e.url),area,foodType}}));
 quote.textContent=(areaFallback?"Not got an exact match for that mood in this area yet, boss — but have a look at this local option.":comments[mood])+(halal==="halal"?" Marked halal based on local contributor information, not independently certified. Confirm with the takeaway before ordering.":"");
 picks.replaceChildren();const card=document.createElement("div");card.className="taj-result";
 const h=document.createElement("h4");h.textContent=item.name;
