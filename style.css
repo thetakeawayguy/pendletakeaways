@@ -19,3 +19,11 @@ input[type="search"]{display:block;width:100%;max-width:560px;padding:13px;margi
 .hours-pill{display:inline-block;font-weight:600;font-size:.77rem;border-radius:999px;padding:5px 10px;border:1px solid #777;background:#333;color:#eee}.hours-listed{background:#173d31;border-color:#467963;color:#d9f7e5}.hours-unknown{background:#343434;border-color:#6a6a6a;color:#e6e6e6}.listing-details{display:inline-block;margin:4px 0 2px}.listing:focus-within{outline:2px solid #ffd400;outline-offset:2px}#directory-title{scroll-margin-top:18px}
 
 .listing-image{height:125px;display:flex;align-items:center;justify-content:center;margin-bottom:13px;overflow:hidden;border-radius:9px;background:#262626}.listing-image img{width:100%;height:100%;object-fit:contain}.profile-art{display:block;max-width:500px;width:100%;height:auto;border-radius:12px;margin:12px 0 20px}
+
+/* Fix logo overflow inside takeaway cards; current markup uses .listing-image as a wrapper */
+#directory-results{min-width:0}
+#directory-results .listing{min-width:0;max-width:100%;overflow:hidden;display:flex;flex-direction:column}
+#directory-results .listing-image{box-sizing:border-box;min-width:0;max-width:100%;width:100%;height:138px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:10px;border-radius:12px}
+#directory-results .listing-image img{display:block;width:100%;max-width:100%;height:100%;max-height:100%;min-width:0;object-fit:contain;object-position:center}
+.profile-art{display:block;box-sizing:border-box;width:100%;max-width:100%;height:190px;object-fit:contain;object-position:center;overflow:hidden;padding:8px}
+@media(max-width:600px){#directory-results .listing-image{height:120px}.profile-art{height:155px}}
