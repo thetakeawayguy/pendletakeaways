@@ -24,11 +24,11 @@ if(!pool.length){pool=entries.filter(e=>(halal!=="halal"||e.halal===true)&&(area
 if(!pool.length){quote.textContent="No listings for this area yet. Try anywhere in Pendle.";picks.replaceChildren();answer.hidden=false;return;}
 const withHunger=pool.filter(e=>e.type.includes(hunger));if(withHunger.length)pool=withHunger;
 const options=pool.filter(e=>e.url!==last);if(options.length)pool=options;
-const item=pool[Math.floor(Math.random()*pool.length)];last=item.url;
+const item=pool[Math.floor(Math.random()*pool.length)];last=item.url;document.dispatchEvent(new CustomEvent("taj-results",{detail:{urls:pool.map(e=>e.url)}}));
 quote.textContent=(areaFallback?"Not got an exact match for that mood in this area yet, boss — but have a look at this local option.":comments[mood])+(halal==="halal"?" Marked halal based on local contributor information, not independently certified. Confirm with the takeaway before ordering.":"");
 picks.replaceChildren();const card=document.createElement("div");card.className="taj-result";
 const h=document.createElement("h4");h.textContent=item.name;
-const p=document.createElement("p");p.textContent=item.area+" · "+item.detail;
+const p=document.createElement("p");p.textContent=item.area+" · "+item.detail+" · See filtered options in the directory below.";
 const a=document.createElement("a");a.href=item.url;a.textContent="See this takeaway's page";card.append(h,p,a);picks.append(card);answer.hidden=false;
 }
 btn.addEventListener("click",suggest);again.addEventListener("click",suggest);
