@@ -16,7 +16,8 @@ const comments={spicy:"Oho, fancy a bit of a kick? Have a look at these curry an
 document.addEventListener("DOMContentLoaded",()=>{
 const btn=document.getElementById("taj-suggest"),again=document.getElementById("taj-again"),answer=document.getElementById("taj-answer"),quote=document.getElementById("taj-quote"),picks=document.getElementById("taj-picks");if(!btn)return;let last="";
 function suggest(){
-const mood=document.querySelector('input[name="taj-mood"]:checked').value,area=document.getElementById("taj-area").value,hunger=document.getElementById("taj-hunger").value;
+const mood=document.querySelector('input[name="taj-mood"]:checked').value,area=document.getElementById("taj-area").value,hunger=document.getElementById("taj-hunger").value,halal=document.getElementById("taj-halal").value;
+if(halal==="halal"){quote.textContent="Halal required, boss? Good shout. I don’t have any takeaway’s halal status independently confirmed yet, so I won’t guess. Please ask the shop whether the specific food is halal, how it is prepared, and whether they have certification if that matters to you.";picks.replaceChildren();answer.hidden=false;return;}
 let pool=entries.filter(e=>(area==="any"||e.area===area)&&(mood==="surprise"||e.type.includes(mood)));
 let areaFallback=false;
 if(!pool.length){pool=entries.filter(e=>area==="any"||e.area===area);areaFallback=true;}
