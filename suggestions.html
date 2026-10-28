@@ -35,11 +35,19 @@
         <label for="category">What is it about?</label>
         <select id="category" name="category" required>
           <option>Suggest a takeaway</option>
+          <option>Submit a takeaway menu</option>
           <option>Menu correction</option>
           <option>Website improvement</option>
           <option>Something else</option>
         </select>
 
+        <div id="menu-fields" hidden>
+          <label for="takeaway-name">Takeaway name</label>
+          <input id="takeaway-name" name="takeaway_name" type="text" maxlength="120" placeholder="e.g. a takeaway in Nelson or Colne">
+          <label for="menu-link">Menu link (optional)</label>
+          <input id="menu-link" name="menu_link" type="url" maxlength="500" placeholder="https://...">
+          <p class="small">Have a photo of a printed menu? Photo attachments aren't available on our current form plan. You can share a public menu link, or describe where we can find the menu. Please only share menus you have permission to provide.</p>
+        </div>
         <label for="suggestion">Your suggestion</label>
         <textarea id="suggestion" name="suggestion"
                   rows="5" minlength="10" required
@@ -63,6 +71,20 @@
   <script>
     const form = document.getElementById('suggestion-form');
     const status = document.getElementById('form-status');
+    const category = document.getElementById('category');
+    const menuFields = document.getElementById('menu-fields');
+    const takeawayName = document.getElementById('takeaway-name');
+    function updateMenuFields() {
+      const isMenu = category.value === 'Submit a takeaway menu';
+      menuFields.hidden = !isMenu;
+      takeawayName.required = isMenu;
+      if (!isMenu) {
+        takeawayName.value = '';
+        document.getElementById('menu-link').value = '';
+      }
+    }
+    category.addEventListener('change', updateMenuFields);
+    updateMenuFields();
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -79,6 +101,7 @@
 
         if (!response.ok) throw new Error('Failed');
         form.reset();
+        updateMenuFields();
         status.textContent =
           'Thank you! Your suggestion has been sent.';
       } catch {
