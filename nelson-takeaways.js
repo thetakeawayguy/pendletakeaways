@@ -1,0 +1,5 @@
+document.addEventListener('DOMContentLoaded',()=>{'use strict';
+const search=document.getElementById('nt-search'),food=document.getElementById('nt-food'),cards=[...document.querySelectorAll('#nt-listings .nt-card')],count=document.getElementById('nt-count'),empty=document.getElementById('nt-empty');
+function filter(){const q=search.value.trim().toLocaleLowerCase('en-GB');let visible=0;for(const card of cards){const matchesText=(card.textContent+' '+card.dataset.food).toLocaleLowerCase('en-GB').includes(q);const matchesFood=!food.value||card.dataset.food.split(/\s+/).includes(food.value);card.hidden=!(matchesText&&matchesFood);if(!card.hidden)visible++}count.textContent=visible+' '+(visible===1?'takeaway':'takeaways');empty.hidden=visible!==0}
+search.addEventListener('input',filter);food.addEventListener('change',filter);filter();
+});
