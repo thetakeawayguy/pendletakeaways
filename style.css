@@ -86,3 +86,8 @@ input[type="checkbox"],input[type="radio"],.shop-checks input,.split-mode input,
 .menu-category .menu-choice{padding:12px 8px}
 .menu-category .menu-choice:hover{background:#F6FAF7}
 .menu-category [hidden]{display:none!important}
+
+/* Menu verification status: no sample prices are represented as verified */
+.menu-status{display:inline-flex;align-items:center;white-space:nowrap;font-size:.75rem;font-weight:700;line-height:1.3;background:#FFF0E4;color:#94400F;border:1px solid #F8C7A1;border-radius:99px;padding:4px 9px;margin:6px 0}
+.shop-checks label .menu-status{display:block;width:max-content;margin:7px 0 0 22px}
+.chosen-menu>.menu-status{margin:0 0 8px}
