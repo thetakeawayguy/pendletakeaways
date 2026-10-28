@@ -9,11 +9,11 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Collect OpenStreetMap candidates
-        run: python3 scripts/research_nelson.py
+      - name: Collect existing Nelson directory candidates
+        run: python3 scripts/research_existing_listings.py
       - name: Commit research candidates (public repository)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/nelson-business-candidates.csv research/nelson-research-metadata.json
+          git add research/nelson-existing-listings.csv
           git diff --cached --quiet || (git commit -m "Refresh Nelson business research candidates" && git push)
