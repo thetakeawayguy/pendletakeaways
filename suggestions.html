@@ -36,6 +36,7 @@
         <select id="category" name="category" required>
           <option>Suggest a takeaway</option>
           <option>Submit a takeaway menu</option>
+          <option>Share a local takeaway tip</option>
           <option>Menu correction</option>
           <option>Website improvement</option>
           <option>Something else</option>
@@ -48,7 +49,8 @@
           <input id="menu-link" name="menu_link" type="url" maxlength="500" placeholder="https://...">
           <p class="small">Have a photo of a printed menu? Photo attachments aren't available on our current form plan. You can share a public menu link, or describe where we can find the menu. Please only share menus you have permission to provide.</p>
         </div>
-        <label for="suggestion">Your suggestion</label>
+        <div id="tip-fields" hidden><label for="tip-takeaway">Which takeaway is your tip about?</label><input id="tip-takeaway" name="tip_takeaway" type="text" maxlength="120" placeholder="e.g. Mansha, Nelson"><p class="small">Useful tips include how to order, what to ask for, typical waiting times, good-value combinations and advice for first-time visitors. Please avoid sharing personal details. Tips are reviewed before publication.</p></div>
+        <label for="suggestion">Your suggestion or tip</label>
         <textarea id="suggestion" name="suggestion"
                   rows="5" minlength="10" required
                   placeholder="Tell us your idea..."></textarea>
@@ -61,7 +63,7 @@
       </form>
       <p id="form-status" role="status" aria-live="polite"></p>
       <p class="small">
-        Your suggestion is sent privately using Formspree.
+        Your suggestion or local tip is sent privately using Formspree. We review tips before publishing them.
         No account is required. Please avoid sharing
         sensitive personal information.
       </p>
@@ -74,8 +76,14 @@
     const category = document.getElementById('category');
     const menuFields = document.getElementById('menu-fields');
     const takeawayName = document.getElementById('takeaway-name');
+    const tipFields = document.getElementById('tip-fields');
+    const tipTakeaway = document.getElementById('tip-takeaway');
     function updateMenuFields() {
       const isMenu = category.value === 'Submit a takeaway menu';
+      const isTip = category.value === 'Share a local takeaway tip';
+      tipFields.hidden = !isTip;
+      tipTakeaway.required = isTip;
+      if (!isTip) tipTakeaway.value = '';
       menuFields.hidden = !isMenu;
       takeawayName.required = isMenu;
       if (!isMenu) {
