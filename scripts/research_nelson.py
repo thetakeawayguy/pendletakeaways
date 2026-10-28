@@ -2,7 +2,7 @@
 """Discover Nelson food businesses from OpenStreetMap for owner review.
 No customer reviews or photographs are copied. Nothing is auto-published.
 """
-import csv, datetime, io, json, urllib.parse, urllib.request
+import csv, datetime, io, json, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 
 # Approximate Nelson town centre bounding box; review results before publication.
@@ -13,10 +13,20 @@ query = '''[out:json][timeout:35];
   nwr["shop"="bakery"](%s,%s,%s,%s);
 );
 out center tags;''' % (BBOX + BBOX)
-url = "https://overpass.private.coffee/api/interpreter"
-request = urllib.request.Request(url, data=urllib.parse.urlencode({"data":query}).encode(), headers={"User-Agent":"PendleTakeawaysResearch/1.0 (https://pendletakeaways.co.uk)", "Accept":"application/json"}, method="POST")
-with urllib.request.urlopen(request, timeout=75) as response:
-    data = json.load(response)
+data = None
+for endpoint in ("https://overpass.kumi.systems/api/interpreter", "https://overpass-api.de/api/interpreter", "https://overpass.nchc.org.tw/api/interpreter"):
+    try:
+        print("Trying:", endpoint, flush=True)
+        request = urllib.request.Request(endpoint, data=urllib.parse.urlencode({"data":query}).encode(), headers={"User-Agent":"PendleTakeawaysResearch/1.0", "Accept":"application/json"}, method="POST")
+        with urllib.request.urlopen(request, timeout=25) as response:
+            data = json.load(response)
+        print("Data received successfully.", flush=True)
+        break
+    except (urllib.error.URLError, TimeoutError, ValueError, OSError) as error:
+        print("Endpoint failed:", type(error).__name__, str(error), flush=True)
+if data is None:
+    print("All map data services unavailable. No research data changed. Please retry later.", flush=True)
+    raise SystemExit(1)
 rows = []
 for item in data.get("elements", []):
     tags = item.get("tags", {})
