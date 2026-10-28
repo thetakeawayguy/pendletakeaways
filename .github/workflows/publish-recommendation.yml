@@ -1,0 +1,68 @@
+name: Publish approved dish recommendation
+on:
+  workflow_dispatch:
+    inputs:
+      takeaway:
+        description: 'Takeaway (Mansha or Adams Curry House)'
+        required: true
+        type: choice
+        options:
+          - Mansha
+          - Adams Curry House
+      dish:
+        description: 'Dish name'
+        required: true
+        type: string
+      price:
+        description: 'Reported price (optional)'
+        required: false
+        type: string
+      recommendation:
+        description: 'Approved customer review'
+        required: true
+        type: string
+      tip:
+        description: 'Approved local tip (optional)'
+        required: false
+        type: string
+      credit:
+        description: 'Approved display name (optional)'
+        required: false
+        type: string
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add approved recommendation
+        env:
+          TAKEAWAY: ${{ inputs.takeaway }}
+          DISH: ${{ inputs.dish }}
+          PRICE: ${{ inputs.price }}
+          RECOMMENDATION: ${{ inputs.recommendation }}
+          TIP: ${{ inputs.tip }}
+          CREDIT: ${{ inputs.credit }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path=Path('approved-recommendations.json')
+          items=json.loads(path.read_text())
+          assert isinstance(items,list)
+          item={'takeaway':os.environ['TAKEAWAY'],'dish':os.environ['DISH'].strip(),'price':os.environ['PRICE'].strip(),'recommendation':os.environ['RECOMMENDATION'].strip(),'tip':os.environ['TIP'].strip(),'credit':os.environ['CREDIT'].strip(),'approved':True}
+          if not item['dish'] or not item['recommendation']:
+              raise ValueError('Dish and recommendation are required')
+          if any(len(str(v))>2500 for v in item.values()):
+              raise ValueError('Field too long')
+          items.append(item)
+          path.write_text(json.dumps(items,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Commit approved recommendation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add approved-recommendations.json
+          git commit -m "Publish approved dish recommendation"
+          git push
