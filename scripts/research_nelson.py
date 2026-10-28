@@ -13,7 +13,7 @@ query = '''[out:json][timeout:35];
   nwr["shop"="bakery"](%s,%s,%s,%s);
 );
 out center tags;''' % (BBOX + BBOX)
-url = "https://overpass.kumi.systems/api/interpreter"
+url = "https://overpass.private.coffee/api/interpreter"
 request = urllib.request.Request(url, data=urllib.parse.urlencode({"data":query}).encode(), headers={"User-Agent":"PendleTakeawaysResearch/1.0 (https://pendletakeaways.co.uk)", "Accept":"application/json"}, method="POST")
 with urllib.request.urlopen(request, timeout=75) as response:
     data = json.load(response)
