@@ -75,3 +75,14 @@ input[type="checkbox"],input[type="radio"],.shop-checks input,.split-mode input,
 .taj-kicker{color:var(--pt-green-dark)}
 .taj-greeting{color:var(--pt-ink)}
 #cookie-banner{background:#fff;color:var(--pt-ink);border-top:2px solid var(--pt-green);box-shadow:0 -4px 18px #123c2118}
+
+
+/* Group-order menu discovery and category layout */
+.menu-profile-link{display:inline-block;margin:0 0 12px;font-size:.9rem;font-weight:700}
+.menu-source-note{margin:5px 0 9px}
+.menu-item-search{display:block;width:100%;padding:12px 14px;margin:10px 0 14px;border:1px solid #9DB6A5;border-radius:9px;background:#fff;color:#202623;font:inherit}
+.menu-category{margin:14px 0 20px}
+.menu-category h4{margin:0;padding:10px 12px;border-left:4px solid #F36B21;background:#FFF4EC;border-radius:0 8px 8px 0;color:#29352D;font-size:1rem}
+.menu-category .menu-choice{padding:12px 8px}
+.menu-category .menu-choice:hover{background:#F6FAF7}
+.menu-category [hidden]{display:none!important}
