@@ -45,3 +45,33 @@ input[type="search"]{display:block;width:100%;max-width:560px;padding:13px;margi
 
 /* Streamlined menus and basket */
 .basket-strip{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;gap:12px;align-items:center;background:#ffd400;color:#111;padding:12px 16px;border-radius:9px;font-size:1.05rem;box-shadow:0 3px 12px #0008}.menu-choice select[hidden]{display:none}.menu-choice{grid-template-columns:minmax(0,1fr) 88px}.menu-choice label{min-width:0}.assignment-line{display:flex;gap:12px;align-items:center;justify-content:space-between;border-bottom:1px solid #444;padding:10px 0}.assignment-line select{min-width:155px;background:#171717;color:#fff;padding:10px;border:1px solid #999;border-radius:7px}#assign-food[hidden]{display:none}@media(max-width:600px){.assignment-line{flex-wrap:wrap}.assignment-line select{width:100%}}
+
+
+/* Pendle Takeaways 2026: fresh, familiar food-ordering palette.
+   Scoped as final overrides to retain existing layout and interactions. */
+:root{color-scheme:light;--pt-green:#078A4B;--pt-green-dark:#056B3B;--pt-orange:#F36B21;--pt-ink:#202623;--pt-muted:#56635B;--pt-surface:#FFFFFF;--pt-page:#F7FAF7;--pt-border:#DCE7DF}
+body{background:var(--pt-page);color:var(--pt-ink)}
+a{color:var(--pt-green-dark)}
+a:hover{color:var(--pt-orange)}
+.site-header,.site-footer{background:#fff;border-color:var(--pt-border)}
+.brand,h1,h2,.chosen-menu h3,.split-mode legend,.chosen-menu summary,.menu-prices th{color:var(--pt-green-dark)}
+.intro,.muted,.small,.brand-label{color:var(--pt-muted)}
+.card,.listing,.chosen-menu,.shop-checks label,.fulfilment-card,.delivery-choice,.split-summary,.taj-widget{background:#fff;color:var(--pt-ink);border-color:var(--pt-border);box-shadow:0 4px 20px #123c2110}
+.listing{border-top-color:var(--shop-colour,var(--pt-orange))}
+button,.group-link{background:var(--pt-green);color:#fff;border-radius:9px}
+button:hover,.group-link:hover{background:var(--pt-green-dark);color:#fff}
+button.secondary{background:#E8F2EB;color:var(--pt-green-dark)}
+button.secondary:hover{background:#D9EBDD}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--pt-orange);outline-offset:2px}
+input[type="search"],.filters select,.order-fields input,.order-fields select,#order-fees input,#split-people,.fulfilment-card select,.fulfilment-card input,.person-names input,.order-person-label select,.menu-choice select,.delivery-choice select,.delivery-choice input,#split-count,.manual-row input,.manual-row select,#person-inputs input,.assignment-line select{background:#fff;color:var(--pt-ink);border-color:#9DB6A5}
+input[type="checkbox"],input[type="radio"],.shop-checks input,.split-mode input,.menu-choice input[type="checkbox"],.split-choices input{accent-color:var(--pt-green)}
+.menu-prices th,.menu-prices td,.order-line,.menu-choice,.assignment-line,.person-balance{border-color:var(--pt-border)}
+.group-promo{border-color:#FFD4B8;background:#FFF8F2}
+.basket-strip{background:var(--pt-green);color:#fff;box-shadow:0 4px 16px #123c2129}
+.split-summary .grand-total{color:var(--pt-green-dark);border-color:var(--pt-border)}
+#order-error{color:#B42318}
+.taj-widget{background:linear-gradient(135deg,#ECF9F0,#FFFFFF 65%);border:2px solid #A9D9B8}
+.taj-face{background:var(--pt-orange);color:#fff;border-color:#E15C14}
+.taj-kicker{color:var(--pt-green-dark)}
+.taj-greeting{color:var(--pt-ink)}
+#cookie-banner{background:#fff;color:var(--pt-ink);border-top:2px solid var(--pt-green);box-shadow:0 -4px 18px #123c2118}
