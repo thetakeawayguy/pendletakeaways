@@ -4,16 +4,19 @@
 <body><header class="site-header"><div class="wrap"><a class="brand" href="index.html">Pendle Takeaways</a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="group-order.html">Split the bill</a><a href="suggestions.html">Suggestions</a><a href="share-food.html" aria-current="page">Food photos</a></nav></div></header>
 <main class="wrap"><h1>Share a food photo</h1><p class="intro">Upload a picture of your takeaway and tell us what it is. Simple!</p>
 <section class="card"><h2>Upload your picture</h2>
-<form id="food-form" action="https://formspree.io/f/mrppkzva" method="POST">
+<form id="food-form" action="https://formspree.io/f/mrppkzva" method="POST" style="display:flex;flex-direction:column;align-items:stretch;gap:12px">
 <input type="hidden" name="category" value="Share a food photo">
-<label for="takeaway">Takeaway name</label><input id="takeaway" name="takeaway_name" required maxlength="120" placeholder="Which takeaway was it?">
-<label for="dish">What did you order?</label><input id="dish" name="dish_name" required maxlength="120" placeholder="e.g. Chicken tikka pizza">
-<label for="photo-file">1. Choose a picture</label><input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" required><img id="photo-preview" alt="Preview of selected food photograph" hidden style="display:block;max-width:100%;max-height:300px;object-fit:contain;margin:12px 0"><input type="hidden" id="photo-url" name="photo_url"><p id="photo-help" class="small" aria-live="polite">No photograph selected.</p>
-<label for="comments">2. Description</label><textarea id="comments" name="description" rows="3" maxlength="1200" required placeholder="e.g. Chicken tikka pizza from a takeaway in Nelson"></textarea>
-<label><input type="checkbox" name="permission_to_publish" value="Yes" required> I took this photo or have permission to share it, and I give Pendle Takeaways permission to display it on the website with the takeaway and dish name.</label>
-<label><input type="checkbox" name="no_people_or_personal_information" value="Confirmed" required> The photo does not show people or private information.</label>
+<label for="photo-file" style="display:block;font-weight:600">1. Choose a picture</label>
+<input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" required style="display:block;width:100%;max-width:100%;box-sizing:border-box">
+<img id="photo-preview" alt="Preview of selected food photograph" hidden style="max-width:100%;max-height:300px;object-fit:contain;margin:4px 0">
+<input type="hidden" id="photo-url" name="photo_url">
+<p id="photo-help" class="small" aria-live="polite" style="margin:0">No photograph selected.</p>
+<label for="comments" style="display:block;font-weight:600">2. Description</label>
+<textarea id="comments" name="description" rows="3" maxlength="1200" required placeholder="e.g. Chicken tikka pizza from a takeaway in Nelson" style="display:block;width:100%;box-sizing:border-box"></textarea>
+<label style="display:flex;align-items:flex-start;gap:9px;font-weight:400;line-height:1.5"><input type="checkbox" name="permission_to_publish" value="Yes" required style="flex:0 0 auto;margin-top:5px"> <span>I own this photo or have permission to share it, and agree that Pendle Takeaways may publish it.</span></label>
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-<button type="submit">Upload picture</button></form>
+<button type="submit" style="align-self:flex-start">Upload picture</button>
+</form>
 <p id="food-status" role="status" aria-live="polite"></p>
 <p class="small">JPG, PNG or WebP, up to 5 MB. Please avoid pictures showing people or personal details. Photos are stored on Cloudinary and may be accessible to anyone with their link. We review submissions before featuring them on Pendle Takeaways.</p></section>
 </main><script>
