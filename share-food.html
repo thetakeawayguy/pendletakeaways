@@ -2,20 +2,20 @@
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Share your food photo | Pendle Takeaways</title><meta name="description" content="Share a photo of a meal from a local Pendle takeaway for review and possible publication."><link rel="stylesheet" href="style.css"></head>
 <body><header class="site-header"><div class="wrap"><a class="brand" href="index.html">Pendle Takeaways</a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="group-order.html">Split the bill</a><a href="suggestions.html">Suggestions</a><a href="share-food.html" aria-current="page">Food photos</a></nav></div></header>
-<main class="wrap"><h1>Share your takeaway food photo</h1><p class="intro">Had a great meal from a takeaway in Pendle? Show local people what you ordered. We review submissions before featuring anything on the website.</p>
-<section class="card"><h2>Send a food photo for review</h2><p class="small">Choose a food photo from your phone or computer (JPG, PNG or WebP, maximum 5 MB). Please avoid people, addresses and other personal details. Uploaded images are stored by Cloudinary and may be accessible to anyone with the image URL, even before we approve them for the website.</p>
+<main class="wrap"><h1>Share a food photo</h1><p class="intro">Upload a picture of your takeaway and tell us what it is. Simple!</p>
+<section class="card"><h2>Upload your picture</h2>
 <form id="food-form" action="https://formspree.io/f/mrppkzva" method="POST">
 <input type="hidden" name="category" value="Share a food photo">
 <label for="takeaway">Takeaway name</label><input id="takeaway" name="takeaway_name" required maxlength="120" placeholder="Which takeaway was it?">
 <label for="dish">What did you order?</label><input id="dish" name="dish_name" required maxlength="120" placeholder="e.g. Chicken tikka pizza">
-<label for="photo-file">Choose your food photo</label><input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" required><img id="photo-preview" alt="Preview of selected food photograph" hidden style="display:block;max-width:100%;max-height:300px;object-fit:contain;margin:12px 0"><input type="hidden" id="photo-url" name="photo_url"><p id="photo-help" class="small" aria-live="polite">No photograph selected.</p>
-<label for="comments">Tell us about it (optional)</label><textarea id="comments" name="comments" rows="4" maxlength="1200" placeholder="What did you enjoy?"></textarea>
+<label for="photo-file">1. Choose a picture</label><input id="photo-file" type="file" accept="image/jpeg,image/png,image/webp" required><img id="photo-preview" alt="Preview of selected food photograph" hidden style="display:block;max-width:100%;max-height:300px;object-fit:contain;margin:12px 0"><input type="hidden" id="photo-url" name="photo_url"><p id="photo-help" class="small" aria-live="polite">No photograph selected.</p>
+<label for="comments">2. Description</label><textarea id="comments" name="description" rows="3" maxlength="1200" required placeholder="e.g. Chicken tikka pizza from a takeaway in Nelson"></textarea>
 <label><input type="checkbox" name="permission_to_publish" value="Yes" required> I took this photo or have permission to share it, and I give Pendle Takeaways permission to display it on the website with the takeaway and dish name.</label>
 <label><input type="checkbox" name="no_people_or_personal_information" value="Confirmed" required> The photo does not show people or private information.</label>
 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-<button type="submit">Submit food photo</button></form>
+<button type="submit">Upload picture</button></form>
 <p id="food-status" role="status" aria-live="polite"></p>
-<p class="small">Your details are sent through Formspree and your photo is uploaded to Cloudinary. Photos are not automatically featured on Pendle Takeaways. Cloudinary upload URLs may still be accessible to people who have the link. We may choose not to feature a submission.</p></section>
+<p class="small">JPG, PNG or WebP, up to 5 MB. Please avoid pictures showing people or personal details. Photos are stored on Cloudinary and may be accessible to anyone with their link. We review submissions before featuring them on Pendle Takeaways.</p></section>
 </main><script>
 const form=document.getElementById('food-form');
 const status=document.getElementById('food-status');
