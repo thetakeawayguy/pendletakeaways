@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Samosa",
+    "description": "Crispy triangular pastry filled with spiced potato, meat or vegetables.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Pakora",
+    "description": "Small pieces of vegetables, chicken or fish coated in spiced batter and fried.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Seekh kebab",
+    "description": "Spiced minced meat shaped around a skewer and grilled.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Shami kebab",
+    "description": "Soft, round patty usually made from minced meat, lentils and spices.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Chicken tikka",
+    "description": "Marinated pieces of chicken cooked in a tandoor or on a grill.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Chaat",
+    "description": "Tangy snack combining ingredients such as chickpeas, potato, yoghurt, chutney and crunchy toppings.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Chana chaat",
+    "description": "Chickpea-based chaat with spices, chutney and often chopped vegetables.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Aloo tikki",
+    "description": "Spiced potato patty, usually shallow-fried until golden.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Spring roll",
+    "description": "Thin pastry roll with a savoury filling, fried until crisp.",
+    "category": "Savoury snacks and starters"
+  },
+  {
+    "name": "Chapati (roti)",
+    "description": "Soft, thin, unleavened flatbread, commonly eaten with curry.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Naan",
+    "description": "Softer, thicker flatbread traditionally baked in a tandoor oven.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Paratha",
+    "description": "Flatbread cooked with oil or ghee, often flaky and sometimes stuffed.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Keema naan",
+    "description": "Naan stuffed with seasoned minced meat.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Peshwari naan",
+    "description": "Naan with a sweet filling, often coconut, raisins and nuts.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Raita",
+    "description": "Cooling yoghurt side, often mixed with cucumber, herbs or spices.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Chutney",
+    "description": "Sauce or relish; mint, tamarind and chilli varieties can taste very different.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Achaar (pickle)",
+    "description": "Strongly flavoured, spiced pickle served in small amounts.",
+    "category": "Breads and sides"
+  },
+  {
+    "name": "Karahi",
+    "description": "Curry cooked in a wok-like pan, often with tomato, ginger and spices.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Korma",
+    "description": "Usually a mild, rich curry, sometimes made with yoghurt, cream or nuts.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Bhuna",
+    "description": "A curry style where spices and sauce are cooked down for a thicker coating.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Daal",
+    "description": "A dish made with lentils or split pulses, ranging from soupy to thick.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Chana masala",
+    "description": "Spiced chickpea curry.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Keema",
+    "description": "Minced meat cooked with spices, sometimes with peas or potatoes.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Biryani",
+    "description": "Seasoned rice cooked or layered with meat or vegetables and aromatic spices.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Pilau rice",
+    "description": "Rice cooked with spices and sometimes stock, vegetables or other additions.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Tandoori",
+    "description": "Food cooked in a traditional clay oven, often marinated before cooking.",
+    "category": "Curries and rice"
+  },
+  {
+    "name": "Mithai",
+    "description": "General name for South Asian sweets, often made with milk, sugar, flour, nuts or syrup.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Jalebi",
+    "description": "Bright orange, spiral-shaped fried sweet soaked in syrup.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Gulab jamun",
+    "description": "Soft round sweet soaked in fragrant sugar syrup.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Barfi",
+    "description": "Dense milk-based sweet cut into squares or diamonds, sometimes flavoured with nuts.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Rasmalai",
+    "description": "Soft cheese-based dumplings served in sweetened, flavoured milk.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Ladoo (laddu)",
+    "description": "Round sweet made from ingredients such as gram flour, semolina or lentils.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Peda",
+    "description": "Small, soft milk-based sweet, often flavoured with cardamom.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Patisa (soan papdi)",
+    "description": "Light, flaky sweet that breaks into fine strands.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Halwa",
+    "description": "Rich sweet dish that may be made from semolina, carrots or other ingredients.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Kheer",
+    "description": "Creamy rice pudding often flavoured with cardamom and nuts.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Falooda",
+    "description": "Cold dessert drink or sundae with vermicelli, syrup, milk and often ice cream.",
+    "category": "Sweets and desserts"
+  },
+  {
+    "name": "Aloo",
+    "description": "Potato.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Chana",
+    "description": "Chickpeas.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Murgh",
+    "description": "Chicken.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Gosht",
+    "description": "Meat; the specific type varies, so ask.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Sabzi",
+    "description": "Vegetables or a vegetable dish.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Meetha",
+    "description": "Sweet.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Teekha",
+    "description": "Spicy or hot.",
+    "category": "Useful words when ordering"
+  },
+  {
+    "name": "Mild",
+    "description": "Usually less chilli heat, though spice levels vary between kitchens.",
+    "category": "Useful words when ordering"
+  }
+]
