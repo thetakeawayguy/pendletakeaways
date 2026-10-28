@@ -1,17 +1,17 @@
 [
   {
     "name": "Samosa",
-    "description": "Crispy triangular pastry filled with spiced potato, meat or vegetables.",
+    "description": "Crispy pastry snack with different fillings, including vegetable, chicken and meat versions. Ask which fillings are available.",
     "category": "Savoury snacks and starters"
   },
   {
     "name": "Pakora",
-    "description": "Small pieces of vegetables, chicken or fish coated in spiced batter and fried.",
+    "description": "Spiced battered snack, with varieties including vegetable and chicken pakoras.",
     "category": "Savoury snacks and starters"
   },
   {
     "name": "Seekh kebab",
-    "description": "Spiced minced meat shaped around a skewer and grilled.",
+    "description": "Spiced minced meat shaped around a skewer and grilled. Varieties include chicken and lamb seekh kebabs, and cheesy chicken seekh kebabs.",
     "category": "Savoury snacks and starters"
   },
   {
