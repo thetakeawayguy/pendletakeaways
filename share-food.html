@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Share your food photo | Pendle Takeaways</title><meta name="description" content="Share a photo of a meal from a local Pendle takeaway for review and possible publication."><link rel="stylesheet" href="style.css"></head>
+<body><header class="site-header"><div class="wrap"><a class="brand" href="index.html">Pendle Takeaways</a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="group-order.html">Split the bill</a><a href="suggestions.html">Suggestions</a><a href="share-food.html" aria-current="page">Food photos</a></nav></div></header>
+<main class="wrap"><h1>Share your takeaway food photo</h1><p class="intro">Had a great meal from a takeaway in Pendle? Show local people what you ordered. We review submissions before featuring anything on the website.</p>
+<section class="card"><h2>Send a food photo for review</h2><p class="small">At present, please paste a link to your photo (for example, a publicly accessible image link). Direct photo uploads from your phone are not enabled yet. Don't share a private album link or an image containing people or personal details.</p>
+<form id="food-form" action="https://formspree.io/f/mrppkzva" method="POST">
+<input type="hidden" name="category" value="Share a food photo">
+<label for="takeaway">Takeaway name</label><input id="takeaway" name="takeaway_name" required maxlength="120" placeholder="Which takeaway was it?">
+<label for="dish">What did you order?</label><input id="dish" name="dish_name" required maxlength="120" placeholder="e.g. Chicken tikka pizza">
+<label for="photo">Link to your food photo</label><input id="photo" name="photo_url" type="url" required maxlength="1000" placeholder="https://...">
+<label for="comments">Tell us about it (optional)</label><textarea id="comments" name="comments" rows="4" maxlength="1200" placeholder="What did you enjoy?"></textarea>
+<label><input type="checkbox" name="permission_to_publish" value="Yes" required> I took this photo or have permission to share it, and I give Pendle Takeaways permission to display it on the website with the takeaway and dish name.</label>
+<label><input type="checkbox" name="no_people_or_personal_information" value="Confirmed" required> The photo does not show people or private information.</label>
+<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+<button type="submit">Submit food photo</button></form>
+<p id="food-status" role="status" aria-live="polite"></p>
+<p class="small">Submissions go privately through Formspree. Photos are not automatically published. We may choose not to feature a submission. Do not include sensitive personal information.</p></section>
+</main><script>
+const form=document.getElementById('food-form');const status=document.getElementById('food-status');
+form.addEventListener('submit',async event=>{event.preventDefault();const button=form.querySelector('button[type="submit"]');button.disabled=true;status.textContent='Sending...';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw Error('Send failed');form.reset();status.textContent='Thank you! Your food photo link has been submitted for review.';}catch{status.textContent='Unable to send right now. Please try again.';}finally{button.disabled=false;}});
+</script></body></html>
