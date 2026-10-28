@@ -2,30 +2,37 @@
 """Discover Nelson food businesses from OpenStreetMap for owner review.
 No customer reviews or photographs are copied. Nothing is auto-published.
 """
-import csv, datetime, io, json, urllib.parse, urllib.request, urllib.error
+import csv, datetime, io, json, urllib.parse, urllib.request, urllib.error, time
 from pathlib import Path
 
 # Approximate Nelson town centre bounding box; review results before publication.
 BBOX = (53.820, -2.245, 53.853, -2.182)
-query = '''[out:json][timeout:35];
+query = '''[out:json][timeout:18];
 (
   nwr["amenity"~"^(fast_food|restaurant|cafe)$"](%s,%s,%s,%s);
   nwr["shop"="bakery"](%s,%s,%s,%s);
 );
 out center tags;''' % (BBOX + BBOX)
 data = None
-for endpoint in ("https://overpass.kumi.systems/api/interpreter", "https://overpass-api.de/api/interpreter", "https://overpass.nchc.org.tw/api/interpreter"):
+endpoints = (
+    "https://overpass.nchc.org.tw/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+)
+for endpoint in endpoints:
     try:
         print("Trying:", endpoint, flush=True)
-        request = urllib.request.Request(endpoint, data=urllib.parse.urlencode({"data":query}).encode(), headers={"User-Agent":"PendleTakeawaysResearch/1.0", "Accept":"application/json"}, method="POST")
-        with urllib.request.urlopen(request, timeout=25) as response:
+        url = endpoint + "?" + urllib.parse.urlencode({"data": query})
+        request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; PendleTakeawaysResearch/1.0)", "Accept": "application/json"})
+        with urllib.request.urlopen(request, timeout=28) as response:
             data = json.load(response)
         print("Data received successfully.", flush=True)
         break
     except (urllib.error.URLError, TimeoutError, ValueError, OSError) as error:
         print("Endpoint failed:", type(error).__name__, str(error), flush=True)
 if data is None:
-    print("All map data services unavailable. No research data changed. Please retry later.", flush=True)
+    print("All OpenStreetMap services unavailable. No data was changed.", flush=True)
     raise SystemExit(1)
 rows = []
 for item in data.get("elements", []):
